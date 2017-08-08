@@ -18,6 +18,14 @@
 
       </form>
 
+      {{#showErrors}}
+      <ul class="errors">
+        {{#errors}}
+        <li>{{.}}</li>
+        {{/errors}}
+      </ul>
+      {{/showErrors}}
+
     </div>
 
   </body>

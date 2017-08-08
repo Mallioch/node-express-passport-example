@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
+const flash = require('express-flash-messages');
+const expressValidator = require('express-validator');
 
 mongoose.connect('mongodb://localhost:27017/passportfun', {
   useMongoClient: true
@@ -25,10 +27,12 @@ app.use(session({
 //passport
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 require('./passportconfig').configure(passport);
 
 //handle post bodies
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(expressValidator());
 
 //mustache
 const mustache = mustacheExpress();
