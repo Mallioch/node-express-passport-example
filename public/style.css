@@ -1,0 +1,14 @@
+body {
+  background-color: #DDD;
+}
+
+.container {
+  background-color: #FFF;
+  border: solid 1px #000;
+  padding: 20px;
+}
+
+form {
+  border: solid 1px #DDD;
+  padding: 10px;
+}
