@@ -12,7 +12,10 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
+    "express-session": "^1.15.5",
     "mongoose": "^4.11.6",
-    "mustache-express": "^1.2.5"
+    "mustache-express": "^1.2.5",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }

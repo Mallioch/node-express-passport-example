@@ -2,6 +2,8 @@ const express = require('express');
 const mustacheExpress = require('mustache-express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const passport = require('passport');
 
 mongoose.connect('mongodb://localhost:27017/passportfun', {
   useMongoClient: true
@@ -12,6 +14,18 @@ const app = express();
 
 //static files
 app.use(express.static('public'));
+
+//session
+app.use(session({
+  secret: 'fadlkuanvdflbdissgndvdoerisfdslj',
+  resave: false,
+  saveUninitialized: false
+}));
+
+//passport
+app.use(passport.initialize());
+app.use(passport.session());
+require('./passportconfig').configure(passport);
 
 //handle post bodies
 app.use(bodyParser.urlencoded({extended: false}));
